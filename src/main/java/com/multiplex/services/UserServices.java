@@ -12,6 +12,11 @@ public List<UserDTO> getUsers() throws UserNotFoundException;
 public User addUser(UserDTO user) throws UserAlreadyExistsException;
 public UserDTO getUserById(Integer userId) throws UserNotFoundException;
 public void deleteUser(Integer userId) throws UserNotFoundException;
-public List<UserDTO> getUserByName(String userName)throws UserNotFoundException;
+
 public void updateUserByEmailId(Integer userId, String emailId) throws UserNotFoundException;
+
+public boolean findByUserNameAndPassword(String username, String password);
+boolean findByUsernameAndPassword(String userName, String password);
+
+
 }

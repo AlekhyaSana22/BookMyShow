@@ -1,5 +1,9 @@
 package com.multiplex.entities;
 
+
+
+
+
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -9,11 +13,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
+
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name="hall")
@@ -21,15 +26,15 @@ public class Hall {
 	@Id
 	@Column(name="hallid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer hallId;
+	private Integer hallId;
 	@OneToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="movieId")
-private Movie movie;
-private Integer seatsNo;
+	private Movie movie;
+	private Integer seatsNo;
 
 	public Hall() {
 		super();
-		// TODO Auto-generated constructor stub
+
 	}
 public Hall(Integer hallId, Movie movie, Integer seatsNo) {
 	super();
@@ -76,4 +81,23 @@ public boolean equals(Object obj) {
 			&& Objects.equals(seatsNo, other.seatsNo);
 }
 
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

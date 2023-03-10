@@ -1,18 +1,17 @@
 package com.multiplex.entities;
 
-import java.util.Objects;
+import java.time.LocalTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -21,50 +20,67 @@ public class Show {
 	@Id
 	@Column(name="showid")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer showId;
+	private Integer showId;
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name="hallId")
-private Hall hall;
+	private Hall hall;
+	@JoinColumn(name="showTime")
+	private LocalTime showTime;
 	public Show() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	public Show(Integer showId, Hall hall) {
+	public Show(Integer showId, Hall hall, LocalTime showTime) {
 		super();
 		this.showId = showId;
 		this.hall = hall;
+		this.showTime = showTime;
 	}
 	public Integer getShowId() {
 		return showId;
 	}
-	public void setShowId(Integer showId) {
-		this.showId = showId;
-	}
 	public Hall getHall() {
 		return hall;
+	}
+	public LocalTime getShowTime() {
+		return showTime;
+	}
+	public void setShowId(Integer showId) {
+		this.showId = showId;
 	}
 	public void setHall(Hall hall) {
 		this.hall = hall;
 	}
+	public void setShowTime(LocalTime showTime) {
+		this.showTime = showTime;
+	}
 	@Override
 	public String toString() {
-		return "Show [showId=" + showId + ", hall=" + hall + "]";
+		return "Show [showId=" + showId + ", hall=" + hall + ", showTime=" + showTime + "]";
 	}
-	@Override
-	public int hashCode() {
-		return Objects.hash(hall, showId);
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Show other = (Show) obj;
-		return Objects.equals(hall, other.hall) && Objects.equals(showId, other.showId);
-	}
-
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
